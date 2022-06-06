@@ -70,7 +70,7 @@ func main() {
 		podName            = os.Getenv("POD_NAME")
 	)
 	flag.StringVar(&leaseLockName, "lease-name", "", "Name of lease lock")
-	flag.StringVar(&leaseLockNamespace, "lease-namespace", "default", "Name of lease lock namespace")
+	flag.StringVar(&leaseLockNamespace, "lease-namespace", "", "Name of lease lock namespace")
 	flag.Parse()
 
 	if leaseLockName == "" {

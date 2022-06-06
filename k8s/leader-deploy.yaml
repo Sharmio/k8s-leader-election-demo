@@ -10,6 +10,7 @@ kind: Deployment
 metadata:
   labels:
     app: leader-election
+    kubernetes.io/metadata.name: sharmio-demo
   name: leader-election
   namespace: sharmio-demo
 spec:
@@ -17,18 +18,21 @@ spec:
   selector:
     matchLabels:
       app: leader-election
+      kubernetes.io/metadata.name: sharmio-demo
   template:
     metadata:
       labels:
         app: leader-election
+        kubernetes.io/metadata.name: sharmio-demo
     spec:
       automountServiceAccountToken: true
       serviceAccount: leader-election-sa
       containers:
-      - image: docker.io/imoisharma/k8s-leader-election:v2-alpha
+      - image: docker.io/imoisharma/k8s-leader-election:v2
         name: leader-election
         args:
           - --lease-name=my-lease
+          - --lease-namespace=sharmio-demo
         env:
           - name: POD_NAME
             valueFrom:

@@ -1,0 +1,12 @@
+apiVersion: coordination.k8s.io/v1
+kind: Lease
+metadata:
+  creationTimestamp: "2022-06-06T01:41:54Z"
+  name: my-lease
+  namespace: sharmio
+spec:
+  acquireTime: "2022-06-06T01:41:54.796514Z"
+  holderIdentity: leaderelection-6ff64c67f9-7pm8b
+  leaseDurationSeconds: 15
+  leaseTransitions: 0
+  renewTime: "2022-06-06T01:52:09.133322Z"
