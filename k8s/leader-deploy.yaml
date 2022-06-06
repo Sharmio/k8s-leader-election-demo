@@ -25,7 +25,7 @@ spec:
       automountServiceAccountToken: true
       serviceAccount: leader-election-sa
       containers:
-      - image: docker.io/imoisharma/k8s-leader-election:v1
+      - image: docker.io/imoisharma/k8s-leader-election:v2-alpha
         name: leader-election
         args:
           - --lease-name=my-lease
