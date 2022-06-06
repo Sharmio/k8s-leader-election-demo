@@ -2,7 +2,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: leaderelection-role
+  name: leader-election-role
+  namespace: sharmio-demo
 rules:
   - apiGroups:
       - coordination.k8s.io
@@ -15,10 +16,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: leaderelection-rolebinding
+  namespace: sharmio-demo
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: leaderelection-role
+  name: leader-election-role
 subjects:
   - kind: ServiceAccount
-    name: leaderelection-sa
+    name: leader-election-sa

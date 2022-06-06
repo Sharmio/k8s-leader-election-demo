@@ -1,25 +1,32 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: sharmio-demo
+  name: sharmio-demo
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
-    app: leaderelection
-  name: leaderelection
+    app: leader-election
+  name: leader-election
+  namespace: sharmio-demo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: leaderelection
+      app: leader-election
   template:
     metadata:
       labels:
-        app: leaderelection
+        app: leader-election
     spec:
       automountServiceAccountToken: true
-      serviceAccount: leaderelection-sa
+      serviceAccount: leader-election-sa
       containers:
       - image: docker.io/imoisharma/k8s-leader-election:v1
-        name: leaderelection
+        name: leader-election
         args:
           - --lease-name=my-lease
         env:
