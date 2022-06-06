@@ -1,6 +1,10 @@
 # Stage1
 FROM golang:1.16-alpine3.15 as builder
 
+LABEL "org.opencontainers.image.authors"="imoisharma@sharmio.com" \
+      "version"="2.0" \
+      "description"="Kubernetes to perform leader election in your distributed application demo."
+
 WORKDIR /app
 
 # copy modules manifests files
