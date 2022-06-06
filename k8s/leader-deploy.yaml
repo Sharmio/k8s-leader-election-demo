@@ -31,7 +31,7 @@ spec:
       - image: docker.io/imoisharma/k8s-leader-election:v2
         name: leader-election
         args:
-          - --lease-name=my-lease
+          - --lease-name=sharmio-lease
           - --lease-namespace=sharmio-demo
         env:
           - name: POD_NAME
